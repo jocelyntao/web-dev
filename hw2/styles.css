@@ -1,0 +1,191 @@
+/* Question 0. Import a font and make all text in the body using that font. Check the homework instructions for more information!*/
+/* Set all text in the body to be a certain color (whatever color you choose!)*/
+/* Center all text in the body. Check out the homework spec for help.*/
+
+body {
+    margin: 50px auto;
+    max-width: 1200px;
+    font-family: 'Noto Sans';
+    text-align: center;
+}
+
+/* Question 1: Add a border, border radius, box shadow, or whatever other styling you'd like to your image! */
+img {
+    width: 175px;
+    border-radius:16px
+}
+
+h1 {
+    background:
+      linear-gradient(
+        to right,
+        rgb(255, 222, 255),
+        rgb(255, 222, 255)
+      ),
+      linear-gradient(
+        to right,
+        rgb(231, 231, 231),
+        rgb(0, 0, 0)
+    )
+    ;
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+
+
+
+
+
+
+
+
+
+/* Question 2. Select the h1 tag and add a hover effect! You can change the background-color, color, opacity, or anything you want.*/
+
+/* YOUR CODE HERE */
+h1:hover {
+    background-size: 0 3px, 100% 3px;
+}
+
+
+
+/* Question 3. Add different background colors for all the different sections (Education, Experience, etc.) by selecting them via ids. */
+
+/* YOUR CODE HERE */
+#education {
+    background-color:rgb(211, 243, 255);
+}
+
+#experience {
+    background-color: rgb(209, 255, 240);
+}
+
+#projects {
+    background-color: cornsilk;
+}
+
+/* #contact {
+    background-color: rgb(255, 225, 255);
+} */
+
+
+
+/* Question 4. Add margin, padding, and borders to the section-wrapper class! */
+
+.section-wrapper{
+    margin-bottom:18px;
+    border-radius: 16px;
+    border-color: black;
+    border-style: solid;
+    padding-left:16px;
+    padding-right:16px;
+    padding-bottom: 16px;
+}
+
+
+
+/* Experience Section */
+
+/* Question 5a. Use CSS Flexbox to display your experiences as shown in the diagram.
+ Hint: Check the homework spec for some help!*/
+
+.experience-wrapper {
+    display: flex; /* YOUR CODE HERE */
+    gap:unset; /*YOUR CODE HERE*/
+    justify-content:space-evenly; /*YOUR CODE HERE*/
+    align-content: stretch;
+}
+
+
+
+
+/* Question 5b. Add a background color to the experience-list-item class.*/
+
+.experience-list-item {
+    border: 4px solid black;
+    text-align: center;
+    width: 20dvw;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: rgb(238, 255, 249);
+    /*YOUR CODE HERE*/
+
+    /* Side note: the transition attribute makes effects look smoother! 
+    This means the hover effect will slowly kick in for 0.2s. */
+    transition: ease-in-out 0.2s;
+}
+
+
+
+/* Question 5c. Let's take a break! Add a hover effect to each experience-list-item div. 
+Experiment with border, border-radius, background-color, or whatever you want!*/
+
+.experience-list-item:hover {
+    background-color:black;
+    color:white;
+}
+
+
+
+
+/* Projects Section */
+
+/* Question 6. Use CSS Flexbox and hover effects for the Projects Section, just as you did for the Experience Section! */
+
+/*YOUR CODE HERE*/
+.project-wrapper {
+    display: flex; /* YOUR CODE HERE */
+    gap:unset; /*YOUR CODE HERE*/
+    justify-content:space-evenly; /*YOUR CODE HERE*/
+    align-content: stretch;
+}
+.project-list-item {
+    border: 4px solid black;
+    text-align: center;
+    width: 20dvw;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: rgb(255, 251, 236);
+    /*YOUR CODE HERE*/
+
+    /* Side note: the transition attribute makes effects look smoother! 
+    This means the hover effect will slowly kick in for 0.2s. */
+    transition: ease-in-out 0.2s;
+}
+.project-list-item:hover {
+    background-color:black;
+    color:white;
+}
+
+
+
+/* Contact Section */
+
+/* Question 7. Make your link look something like the one shown in the homework spec!*/
+
+a {
+    background:
+      linear-gradient(
+        to right,
+        rgb(255, 222, 255),
+        rgb(255, 222, 255)
+      ),
+      linear-gradient(
+        to right,
+        rgb(231, 231, 231),
+        rgb(0, 0, 0)
+    )
+    ;
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+
+a:hover {
+    background-size: 0 3px, 100% 3px;
+}
+  
+  

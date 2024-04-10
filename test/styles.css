@@ -1,0 +1,31 @@
+body {
+    background-color: midnightblue;
+}
+
+h1 {
+    color:white;
+}
+
+p {
+    color:skyblue;
+    font-size:20px;
+}
+
+.box {
+    border: solid 3px skyblue;
+    margin: 8px;
+    padding: 16px;
+    /* width: 20vw;
+    height: 10vh; */
+    flex:1;
+    border-radius:20px;
+}
+
+.big {
+    flex:2;
+}
+
+.flex-container {
+    display: flex;
+    justify-content:flex-start;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Finder</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
+    />
+
+    <style>
+        #pets {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        article {
+            text-align: center;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        article img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 1rem;;
+        }
+
+        article .img-container {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Pet Finder</h1>
+
+        <div id="add-form">
+            <input id="pet-name" placeholder="Pet name">
+            <input id="image-url" placeholder="Image URL">
+            <button id="add-btn">Add Pet</button>
+        </div>
+
+        <section id="pets"></section>
+    </main>
+
+    <script>
+        const petsEl = document.querySelector('#pets')
+        const nameInput = document.querySelector('input#pet-name')
+        const imageUrlInput = document.querySelector('input#image-url')
+        const addButton = document.querySelector('#add-btn')
+
+        async function updatePets() {
+            const response = await fetch('/pets')
+            const data = await response.json()
+
+            if (response.ok) {
+                petsEl.innerHTML = data.map(({ name, image }) => (
+                    `<article class="card">
+                        <div class="img-container"><img src="${image}"></div>
+                        <div>${name}</div>
+                    </article>`
+                )).join('\n')
+            } else {
+                alert('Pets could not be loaded! See console.')
+                console.log(response, data)
+            }
+        }
+
+        addButton.addEventListener('click', async () => {
+            if (!nameInput.value || !imageUrlInput.value) {
+                alert('Pet name or image URL not specified')
+                return
+            }
+
+            const response = await fetch('/pets', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: nameInput.value,
+                    image: imageUrlInput.value
+                })
+            })
+
+            const data = await response.json()
+            console.log(response, data)
+
+            if (response.ok) {
+                nameInput.value = ''
+                imageUrlInput.value = ''
+                await updatePets()
+            }
+        })
+
+        updatePets()
+    </script>
+</body>
+</html>

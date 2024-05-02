@@ -37,7 +37,17 @@ app.get('/pets', asyncHandler(async (req, res) => {
 
 // QUESTION: add a handler to create a pet: POST /pets
 // app.post('/pets', asyncHandler(async (req, res) => {
-
+app.post('/pets', asyncHandler(async (req, res) => {
+    const name = req.body.name
+    const image = req.body.image
+    
+    const newPet = new Pet({ name, image })
+    // same as new Pet({ "name": name, "image": image })
+    await newPet.save()
+    
+    res.status(201).json(newPet)
+    }))
+     
 // }));
 
 

@@ -38,7 +38,7 @@ app.get("/cards", asyncHandler(async (req, res) => {
 
 // QUESTION 7. Finish this route handler that finds a card by its id and returns it as JSON.
 app.get("/card/:id", asyncHandler(async (req, res) => {
-    const id = req.body.id;
+    const id = req.params.id;
     const foundCard = await Flashcard.findById(id);
     res.send(foundCard)
 }));
@@ -46,9 +46,9 @@ app.get("/card/:id", asyncHandler(async (req, res) => {
 // QUESTION 8. Write a route handler for "GET /delete/:id" to delete a card by its id and return the deleted data.
 // Try googling what the mongoose method could be or check the lab slides!
 // Hint: This will be similar to the previous question.
-app.delete("delete/:id", asyncHandler(async (req, res) => {
-    const id = req.body.id;
-    const deletedCard = await Flashcard.findyByIdAndDelete(id);
+app.delete("/delete/:id", asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const deletedCard = await Flashcard.findByIdAndDelete(id);
     res.send(deletedCard)
 }))
 
